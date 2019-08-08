@@ -22,7 +22,7 @@ public class StudentsBasicService implements StudentsService {
     public Collection<Student> retrieveStudentsGroupedByLastNameInitial(final String lastNameInitial) {
         return dao.getStudents()
                 .stream()
-                .filter(s -> s.getFirstName().substring(0, 1).equals(lastNameInitial))
+                .filter(s -> s.getLastName().substring(0, 1).equalsIgnoreCase(lastNameInitial))
                 .collect(Collectors.toList());
     }
 }

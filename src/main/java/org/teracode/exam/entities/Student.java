@@ -1,20 +1,13 @@
 package org.teracode.exam.entities;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.Objects;
 
 public class Student {
     private Long id;
     private String firstName;
     private String lastName;
     private LocalDate birth;
-    private Collection<Subject> subjects;
-
-    public Student() {
-        this.subjects = new ArrayList<>();
-    }
 
     public Long getId() {
         return id;
@@ -48,11 +41,29 @@ public class Student {
         this.birth = birth;
     }
 
-    public Collection<Subject> getSubjects() {
-        return List.copyOf(subjects);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return Objects.equals(id, student.id) &&
+                Objects.equals(firstName, student.firstName) &&
+                Objects.equals(lastName, student.lastName) &&
+                Objects.equals(birth, student.birth);
     }
 
-    public void addSubject(Subject subject) {
-        subjects.add(subject);
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, birth);
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birth=" + birth +
+                '}';
     }
 }

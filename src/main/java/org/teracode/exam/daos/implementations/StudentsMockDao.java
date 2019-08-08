@@ -20,7 +20,12 @@ public class StudentsMockDao implements StudentsDao {
                 createStudent("Mike", "Thompson"),
                 createStudent("Ross", "Jackson"),
                 createStudent("Joey", "Trump"),
-                createStudent("Steven", "Peterson")
+                createStudent("Diego", "Williams"),
+                createStudent("Patrick", "Roberts"),
+                createStudent("Larry", "Jane"),
+                createStudent("John", "Whitman"),
+                createStudent("Carl", "Johnson"),
+                createStudent("Hugh", "Blackman")
         );
     }
 
