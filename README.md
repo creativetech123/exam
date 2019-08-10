@@ -14,7 +14,7 @@
 
 4. Create at least two different database table structure diagrams to describe the possible ways that the domain could be translated to the database. Explain pros and cons of each structure.
 
-![Entity Relationship Model](DB/ERM.png)
+![Entity Relationship Model](diagrams/ERM.png)
 
 Pros:
 
