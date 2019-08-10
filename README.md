@@ -2,15 +2,15 @@
 
 1. Considering the structure of a school, create the diagram that describes the domain model and relationship between entities. Some of the possible entities may be Principal, Employee, Student and Janitor. Try to apply the concepts of Hierarchy, Abstract Class and Interface.
 
-
+   This will be answered with Java code.
 
 2. Implement a method that returns all the students in the school grouped by the first letter of their last name.
 
-
+   This is answered with Java code.
 
 3. Implement a method that returns all students taking a subject. Please consider that the students cannot be repeated, this needs to be verified.
 
-
+   This will be answered with Java code.
 
 4. Create at least two different database table structure diagrams to describe the possible ways that the domain could be translated to the database. Explain pros and cons of each structure.
 
