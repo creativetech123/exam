@@ -14,7 +14,18 @@
 
 4. Create at least two different database table structure diagrams to describe the possible ways that the domain could be translated to the database. Explain pros and cons of each structure.
 
+![Entity Relationship Model](DB/ERM.png)
 
+Pros:
+
+- It's a very simple approach to both represent the domain and solve the problem stated.
+- It's normalized to a certain commonly used level (not beyond 4th normal form), thus there's no data duplication.
+- The queries necessary to answer questions about the domain are kept relatively simpler. Some joins are required.
+
+Cons:
+
+- It can difficult the corresponding mapping to Java objects.
+- It can't express the entire domain model at glance.
 
 5. Having the following query:
 
@@ -27,6 +38,8 @@ WHERE j.workingArea = ‘Hallway’;
 ```
 
 Our query is taking too long to respond. What changes would you do to the query and/or the database to make it go faster if we only need the first and last name of the janitor?
+
+If the joins are not important enough, then the following query must accomplish the requested.
 
 ```sql
 SELECT firstName, lastName
@@ -62,12 +75,12 @@ Pros:
 
 Cons:
 
-- SQL is not a programming language!!
+- SQL is not a programming language.
 - Storing business logic is not the primary goal of a database engine.
 - You are broking the correct separation of concerns. A database engine must be used only for saving items (and doing some light related tasks).
 - Doing that can (and will) make the database engine become a heavy resources consumer and a system bottleneck.
 - You can not make tests. In fact, you can but is extremelly difficult and sometimes is no use of doing them.
-- Programmers will fed up and quit.
+- Programmers can lose their motivation if they have to work exclusively with SQL for a long span of time.
 
 ## Exercise 2
 
