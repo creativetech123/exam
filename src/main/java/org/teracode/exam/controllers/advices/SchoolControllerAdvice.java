@@ -11,6 +11,6 @@ import org.teracode.exam.responses.dtos.ErrorDTO;
 public class SchoolControllerAdvice {
     @ExceptionHandler({BadRequestException.class})
     public ResponseEntity handleRuntimeException(final BadRequestException exception) {
-        return new ResponseEntity<>(new ErrorDTO(exception.getError()), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(new ErrorDTO("Invalid last name initial"), HttpStatus.BAD_REQUEST);
     }
 }

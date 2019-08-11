@@ -24,7 +24,7 @@ public class SchoolController {
     @GetMapping("/filtered-students/{lastNameInitial}")
     public Collection<Student> getStudentsByLastnameInitial(@PathVariable("lastNameInitial") final String lastNameInitial) {
         if (lastNameInitial.matches("[0-9*#+]+"))
-            throw new BadRequestException("Invalid last name initial: " + lastNameInitial);
+            throw new BadRequestException();
 
         return service.retrieveStudentsGroupedByLastNameInitial(lastNameInitial);
     }
