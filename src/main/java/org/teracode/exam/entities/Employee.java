@@ -1,4 +1,5 @@
 package org.teracode.exam.entities;
 
-public class Employee {
+class Employee extends Person {
+    Role role;
 }

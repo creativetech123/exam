@@ -26,6 +26,7 @@ Cons:
 
 - It can difficult the corresponding mapping to Java objects.
 - It can't express the entire domain model at glance.
+- This model has some indexes. This means that heavy writing or updating operations can slow down database performance.
 
 5. Having the following query:
 
@@ -49,7 +50,7 @@ WHERE workingArea = 'Hallway';
 
 6. Consider that we have a query that joins many tables and takes too long to return the values. We know as a fact that the tables involved do not update too often, but we still use this query many times in a day (consider it a report). What would you do to be able to get these results faster?
 
-I'll check the execution plan for that query to see if it can be optimized adding indexes. I also consider if it's worth saving the query's results to an intermediate table.
+I'll check the execution plan for that query to see if it can be optimized adding indexes. I also consider if it's worth saving the query's results to an intermediate table. Finally, maybe that query can be run at midnight when database traffic is minimal, so by morning we can have the results.
 
 7. Using the model create a query that returns all the students with age between 19 and 21. Take into account that the age is not a column on the table, we have a field for birth date. How would you optimize this query?
 

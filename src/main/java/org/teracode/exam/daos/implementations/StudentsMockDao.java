@@ -7,14 +7,14 @@ import org.teracode.exam.entities.Student;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Collection;
-import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Repository
 public class StudentsMockDao implements StudentsDao {
     @Override
     public Collection<Student> getStudents() {
-        return List.of(
+        return Set.of(
                 createStudent("Peter", "Robinson"),
                 createStudent("David", "Hudson"),
                 createStudent("Mike", "Thompson"),

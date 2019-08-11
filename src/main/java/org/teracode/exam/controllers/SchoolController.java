@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.teracode.exam.entities.Student;
+import org.teracode.exam.exceptions.BadRequestException;
 import org.teracode.exam.services.StudentsService;
 
 import java.util.Collection;
@@ -22,6 +23,9 @@ public class SchoolController {
 
     @GetMapping("/filtered-students/{lastNameInitial}")
     public Collection<Student> getStudentsByLastnameInitial(@PathVariable("lastNameInitial") final String lastNameInitial) {
+        if (lastNameInitial.matches("[0-9*#+]+"))
+            throw new BadRequestException("Invalid last name initial: " + lastNameInitial);
+
         return service.retrieveStudentsGroupedByLastNameInitial(lastNameInitial);
     }
 }
