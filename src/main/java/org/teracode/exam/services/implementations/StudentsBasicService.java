@@ -16,9 +16,9 @@ public class StudentsBasicService implements StudentsService {
     private final StudentDTOMapper dtoMapper;
 
     @Autowired
-    public StudentsBasicService(final StudentsDao dao, final StudentDTOMapper dtoMapper) {
+    public StudentsBasicService(final StudentsDao dao) {
         this.dao = dao;
-        this.dtoMapper = dtoMapper;
+        this.dtoMapper = new StudentDTOMapper();
     }
 
     @Override

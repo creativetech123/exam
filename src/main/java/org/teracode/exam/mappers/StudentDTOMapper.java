@@ -1,19 +1,15 @@
 package org.teracode.exam.mappers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.teracode.exam.entities.Student;
 import org.teracode.exam.responses.dtos.StudentDTO;
 
 import java.util.stream.Collectors;
 
-@Component
 public class StudentDTOMapper {
     private final SubjectDTOMapper subjectDTOMapper;
 
-    @Autowired
-    public StudentDTOMapper(final SubjectDTOMapper subjectDTOMapper) {
-        this.subjectDTOMapper = subjectDTOMapper;
+    public StudentDTOMapper() {
+        this.subjectDTOMapper = new SubjectDTOMapper();
     }
 
     public StudentDTO from(final Student student) {
