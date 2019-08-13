@@ -52,7 +52,47 @@ class SchoolControllerTest extends Specification {
 
         then:
         results.andExpect(status().isOk())
-        results.andExpect(jsonPath('$').isArray())
         results.andExpect(jsonPath('$').exists())
+        results.andExpect(jsonPath('$').isArray())
+    }
+
+    def "When invocked getStudentsTakingSubjects method -> returns data and 200 ok"() {
+        when:
+        def results = mockMvc.perform(get('/school/students')
+                .contentType(MediaType.APPLICATION_JSON))
+
+        then:
+        noExceptionThrown()
+        and:
+        results.andExpect(status().isOk())
+        results.andExpect(jsonPath('$').exists())
+        results.andExpect(jsonPath('$').isArray())
+    }
+
+    def "When invocked getStudentsTakingSubjects method with invalid subject id -> returns error and 400 bad request"() {
+        given:
+        def id = 'a'
+
+        when:
+        def results = mockMvc.perform(get('/school/students/by-subject/{id}', id)
+                .contentType(MediaType.APPLICATION_JSON))
+
+        then:
+        results.andExpect(status().isBadRequest())
+        results.andExpect(jsonPath('$.error').value('Invalid request parameter'))
+    }
+
+    def "When invocked getStudentsTakingSubjects method with valid id -> returns data and 200 ok"() {
+        given:
+        def id = 1L
+
+        when:
+        def results = mockMvc.perform(get('/school/students/by-subject/{id}', id)
+                .contentType(MediaType.APPLICATION_JSON))
+
+        then:
+        results.andExpect(status().isOk())
+        results.andExpect(jsonPath('$').exists())
+        results.andExpect(jsonPath('$').isArray())
     }
 }
