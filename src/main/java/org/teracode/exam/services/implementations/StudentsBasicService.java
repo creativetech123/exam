@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.teracode.exam.daos.StudentsDao;
 import org.teracode.exam.mappers.StudentDTOMapper;
-import org.teracode.exam.mappers.SubjectMapper;
 import org.teracode.exam.responses.dtos.StudentDTO;
 import org.teracode.exam.services.StudentsService;
 
@@ -15,13 +14,11 @@ import java.util.stream.Collectors;
 public class StudentsBasicService implements StudentsService {
     private final StudentsDao dao;
     private final StudentDTOMapper dtoMapper;
-    private final SubjectMapper mapper;
 
     @Autowired
-    public StudentsBasicService(final StudentsDao dao, final StudentDTOMapper dtoMapper, final SubjectMapper mapper) {
+    public StudentsBasicService(final StudentsDao dao, final StudentDTOMapper dtoMapper) {
         this.dao = dao;
         this.dtoMapper = dtoMapper;
-        this.mapper = mapper;
     }
 
     @Override
