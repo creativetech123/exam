@@ -2,7 +2,7 @@
 
 - [x] Considering the structure of a school, create the diagram that describes the domain model and relationship between entities. Some of the possible entities may be Principal, Employee, Student and Janitor. Try to apply the concepts of Hierarchy, Abstract Class and Interface.
 
-![Class diagram](diagrams/class diagram.png)
+![Class diagram](diagrams/class-diagram.png)
 
 - [x] Implement a method that returns all the students in the school grouped by the first letter of their last name.
 - [x] Implement a method that returns all students taking a subject. Please consider that the students cannot be repeated, this needs to be verified.
